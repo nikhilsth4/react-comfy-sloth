@@ -16,6 +16,7 @@ const ProductsPage = () => {
   const products = useSelector((state) => state.products)
   useEffect(() => {
     dispatch(loadProducts)
+    // eslint-disable-next-line
   }, [])
 
   const { products_loading: loading, products_error: error } = products

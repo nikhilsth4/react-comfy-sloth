@@ -1,11 +1,10 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 import GridView from './GridView'
 import ListView from './ListView'
 
 const ProductList = () => {
-  const dispatch = useDispatch()
   const filters = useSelector((state) => state.filters)
   const { filtered_products: products, grid_view } = filters
 

@@ -3,11 +3,10 @@ import styled from 'styled-components'
 import { formatPrice } from '../utils/helpers'
 import AmountButtons from './AmountButtons'
 import { FaTrash } from 'react-icons/fa'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { removeItem, toggleAmount } from '../redux/cart/cart.action'
 
 const CartItem = ({ id, image, name, color, price, amount }) => {
-  const cart = useSelector((state) => state.cart)
   const dispatch = useDispatch()
   const increase = () => {
     dispatch(toggleAmount(id, 'inc'))

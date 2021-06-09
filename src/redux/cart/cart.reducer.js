@@ -59,16 +59,19 @@ const userReducer = (state = INITIAL_STATE, action) => {
           cart_items: [...state.cart_items, newItem],
         }
       }
+    /* falls through */
 
     case REMOVE_CART_ITEM:
       const tempCart = state.cart_items.filter(
         (item) => item.id !== action.payload
       )
       return { ...state, cart_items: tempCart }
+    /* falls through */
 
     case CLEAR_CART:
       localStorage.setItem('cart', [])
       return { ...state, cart_items: [] }
+    /* falls through */
 
     case TOGGLE_CART_ITEM_AMOUNT:
       const { id: itemId, value } = action.payload
@@ -88,12 +91,12 @@ const userReducer = (state = INITIAL_STATE, action) => {
             }
             return { ...item, amount: newAmount }
           }
-        } else {
-          return item
         }
+        return item
       })
 
       return { ...state, cart_items: temCart }
+    /* falls through */
 
     case COUNT_CART_TOTALS:
       if (state.cart_items) {
@@ -111,6 +114,8 @@ const userReducer = (state = INITIAL_STATE, action) => {
         )
         return { ...state, total_amount, total_items }
       }
+    /* falls through */
+
     default:
       return state
   }

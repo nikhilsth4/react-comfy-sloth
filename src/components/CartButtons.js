@@ -15,6 +15,7 @@ const CartButtons = () => {
 
   useEffect(() => {
     dispatch(countCartTotals())
+    // eslint-disable-next-line
   }, [cart.cart_items])
 
   return (

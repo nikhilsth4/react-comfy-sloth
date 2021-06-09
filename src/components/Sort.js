@@ -15,8 +15,9 @@ const Sort = () => {
   const filters = useSelector((state) => state.filters)
   const { filtered_products: products, grid_view, sort } = filters
   useEffect(() => {
-    dispatch({type:FILTER_PRODUCTS})
+    dispatch({ type: FILTER_PRODUCTS })
     dispatch({ type: SORT_PRODUCTS })
+    // eslint-disable-next-line
   }, [sort, filters.filters])
   return (
     <Wrapper>

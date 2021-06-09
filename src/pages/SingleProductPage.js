@@ -29,14 +29,17 @@ const SingleProductPage = () => {
 
   useEffect(() => {
     dispatch(fetchSingleProduct(id))
+    // eslint-disable-next-line
   }, [id])
 
   useEffect(() => {
+    // eslint-disable-next-line
     if (error) {
       setTimeout(() => {
         history.push('/')
       }, 3000)
     }
+    // eslint-disable-next-line
   }, [error])
 
   if (loading) {
